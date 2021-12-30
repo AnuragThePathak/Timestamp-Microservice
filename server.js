@@ -15,6 +15,7 @@ app.use(express.static("public"))
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
+  // eslint-disable-next-line no-undef
   res.sendFile(__dirname + "/views/index.html")
 })
 
@@ -27,6 +28,7 @@ app.get("/api/hello", function (req, res) {
 
 
 // listen for requests :)
+// eslint-disable-next-line no-undef
 var listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Your app is listening on port " + listener.address().port)
 })
@@ -44,6 +46,7 @@ app.get("/api/:date", (req, res) => {
   const dateInt = Date.parse(req.params.date)
 
   if (isNaN(dateInt)) {
+    Date(dateInt)
     res.json({ error: "Invalid Date" })
   } else {
     const dateObject = new Date(dateInt)
