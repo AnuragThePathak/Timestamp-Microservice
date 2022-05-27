@@ -5,7 +5,7 @@ metadata:
   labels:
     name: ingress
 spec:
-  ingressClassName: {{ .Values.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.ingress.className }}
   rules:
     - http:
         paths:
@@ -17,3 +17,4 @@ spec:
                 port:
                   number: 80
       host: {{ (index .Values.ingress.hosts 0).host }}
+      # Make sure to comment/remove host field to get it working in AKS
